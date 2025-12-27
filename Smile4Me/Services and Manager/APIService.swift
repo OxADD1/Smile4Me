@@ -4,7 +4,7 @@
 //
 //  Created by Adrian Eberhardt on 27.12.25.
 //
-
+import Foundation
 
 class APIService {
     let urlString: String
