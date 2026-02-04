@@ -55,9 +55,13 @@ struct JokeContentView: View {
                                 if let joke {
                                     Button("Report Joke") {
                                         let jokeToReport = "\(joke.id)\n\(joke.fullJoke)"
+                                        #if os(macOS)
                                         let pasteboard = NSPasteboard.general
                                         pasteboard.declareTypes([.string], owner: nil)
                                         pasteboard.setString(jokeToReport, forType: .string)
+                                        #else
+                                        
+                                        #endif
                                         guard let url = URL(string: jokeManager.issueURL) else { return }
                                         openURL(url)
                                     }

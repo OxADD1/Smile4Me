@@ -16,10 +16,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		DA55A8882F3372E700CA2BBB /* Exceptions for "Smile4Me_iOS" folder in "Smile4Me_iOS" target */ = {
+		DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Smile4Me-iOS-Info.plist",
+				Models/Category.swift,
+				Models/Joke.swift,
+				Models/JokeTyp.swift,
+				Models/Language.swift,
+				"Services and Manager/APIService.swift",
+				"Services and Manager/JokeManager.swift",
+				Views/JokeContentView.swift,
+				Views/JokeView.swift,
 			);
 			target = DA55A47C2F332F9200CA2BBB /* Smile4Me_iOS */;
 		};
@@ -28,14 +35,14 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				DA55A8882F3372E700CA2BBB /* Exceptions for "Smile4Me_iOS" folder in "Smile4Me_iOS" target */,
-			);
 			path = Smile4Me_iOS;
 			sourceTree = "<group>";
 		};
 		DAB13FDD2F0084D100467C76 /* Smile4Me */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */,
+			);
 			path = Smile4Me;
 			sourceTree = "<group>";
 		};
