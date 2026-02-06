@@ -31,7 +31,7 @@ struct JokeContentView: View {
                             }
                             Picker("Category", selection: $category) {
                                 ForEach(Category.allCases) { category in
-                                Text("\(category)")
+                                Text(String(describing: category))
                                 }
                             }
                         }
