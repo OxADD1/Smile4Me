@@ -52,6 +52,11 @@ struct JokeContentView: View {
                             if let joke {
                                 ShareLink(item: joke.fullJoke)
                             }
+#if os(iOS)
+                            if let joke {
+                                TranslationView(joke: joke)
+                            }
+#endif
                             HStack(alignment: .top) {
                                 if let joke {
                                     Button("Report Joke", role: .destructive) {
