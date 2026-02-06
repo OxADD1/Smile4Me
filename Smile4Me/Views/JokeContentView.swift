@@ -12,7 +12,7 @@ struct JokeContentView: View {
     @State private var joke: Joke?
     @State private var category: Category = .Any
     @State private var language: Language = .en
-    @State private var errorString: String = ""
+    @State private var errorString = ""
     @State private var fetching = false
     @Environment(\.openURL) var openURL
     var body: some View {
@@ -26,14 +26,12 @@ struct JokeContentView: View {
                         HStack {
                             Picker("Language", selection: $language) {
                                 ForEach(Language.allCases) { language in
-                                    Text(verbatim: language.full)
-                                        .tag(language)
+                                    Text(language.full)
                                 }
                             }
                             Picker("Category", selection: $category) {
                                 ForEach(Category.allCases) { category in
-                                    Text(verbatim: String(describing: category))
-                                        .tag(category)
+                                Text("\(category)")
                                 }
                             }
                         }
@@ -74,7 +72,7 @@ struct JokeContentView: View {
                                     openURL(url)
                                 }
                                 .buttonStyle(.bordered)
-                                Text("You can report an unsafe joke. The Joke id and content will be on your clipboard")
+                                Text("You can report an unsafe joke.  The Joke id and content will be on your clipboard")
                                     .font(.caption)
                                     .lineLimit(nil)
                                     .foregroundStyle(.red)
@@ -87,15 +85,20 @@ struct JokeContentView: View {
             }
             .navigationTitle("Smile4Me")
         }
-        .padding()
-        .task {
-            await getJoke()
+        .firstOnAppear {
+            Task {
+                await getJoke()
+            }
         }
-        .task(id: category) {
-            await getJoke()
+        .onChange(of: language) {
+            Task {
+                await getJoke()
+            }
         }
-        .task(id: language) {
-            await getJoke()
+        .onChange(of: category) {
+            Task {
+                await getJoke()
+            }
         }
     }
     
@@ -114,11 +117,31 @@ struct JokeContentView: View {
                 self.joke = joke
             }
         } catch {
-            errorString = "No joke for \(category) in \(language)"
+            errorString = "No joke for \(category) - \(language)"
         }
     }
 }
 
 #Preview {
     JokeContentView()
+}
+
+struct FirstOnAppearModifier: ViewModifier {
+    @State private var hasPerformedAction = false
+    let action: (() -> Void)?
+    func body(content: Content) -> some View {
+        content
+            .onAppear {
+                if !hasPerformedAction {
+                    hasPerformedAction = true
+                    action?()
+                }
+            }
+    }
+}
+
+extension View {
+    func firstOnAppear(performOnce action: (() -> Void)? = nil) -> some View {
+        modifier(FirstOnAppearModifier(action: action))
+    }
 }

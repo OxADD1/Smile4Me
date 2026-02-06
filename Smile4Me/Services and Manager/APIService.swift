@@ -1,9 +1,3 @@
-//
-//  APIService.swift
-//  Smile4Me
-//
-//  Created by Adrian Eberhardt on 27.12.25.
-//
 import Foundation
 
 class APIService {
@@ -12,32 +6,31 @@ class APIService {
         self.urlString = urlString
     }
     
-    func getJSON() async throws(APIERROR) -> Joke {
+    func getJSON<T: Decodable>() async throws(APIError) -> T {
         guard let url = URL(string: urlString) else {
             throw .invalidURL
         }
         do {
-            let (data, respone) = try await URLSession.shared.data(from: url)
-            guard let httpRespone = respone as? HTTPURLResponse,
-                  httpRespone.statusCode == 200
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode == 200
             else {
-                throw APIERROR.invalidResponseStatus
+                throw APIError.invalidResponseStatus
             }
             let decoder = JSONDecoder()
             do {
-                let decodedData = try decoder.decode(Joke.self, from: data)
+                let decodedData = try decoder.decode(T.self, from: data)
                 return decodedData
             } catch {
-                throw APIERROR.decodingError(error.localizedDescription)
+                throw APIError.decodingError(error.localizedDescription)
             }
         } catch {
             throw .dataTaskError(error.localizedDescription)
         }
-                
     }
 }
 
-enum APIERROR: Error, LocalizedError{
+enum APIError: Error, LocalizedError {
     case invalidURL
     case dataTaskError(String)
     case invalidResponseStatus
@@ -45,14 +38,14 @@ enum APIERROR: Error, LocalizedError{
     
     var errorDescription: String? {
         switch self {
-        case .invalidURL:
-            NSLocalizedString("The endpoint URL is invalid.", comment: "")
-        case .dataTaskError(let string):
-            string
-        case .invalidResponseStatus:
-            NSLocalizedString("The API failed to issue a valid response", comment: "")
-        case .decodingError(let string):
-            string
+            case .invalidURL:
+                NSLocalizedString("The endpoint URL is invalid.", comment: "")
+            case .dataTaskError(let string):
+                string
+            case .invalidResponseStatus:
+                NSLocalizedString("The API failed to issue a valid response", comment: "")
+            case .decodingError(let string):
+                string
         }
     }
 }
