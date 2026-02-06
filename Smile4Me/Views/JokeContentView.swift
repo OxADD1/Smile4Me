@@ -52,34 +52,35 @@ struct JokeContentView: View {
                             if let joke {
                                 ShareLink(item: joke.fullJoke)
                             }
+                        }
 #if os(iOS)
+                        if let joke {
+                            TranslationView(joke: joke)
+                        }
+#endif
+                        HStack(alignment: .top) {
                             if let joke {
-                                TranslationView(joke: joke)
-                            }
-#endif
-                            HStack(alignment: .top) {
-                                if let joke {
-                                    Button("Report Joke", role: .destructive) {
-                                        let jokeToReport = "\(joke.id)\n\(joke.fullJoke)"
+                                Button("Report Joke", role: .destructive) {
+                                    let jokeToReport = "\(joke.id)\n\(joke.fullJoke)"
 #if os(macOS)
-                                        let pasteboard = NSPasteboard.general
-                                        pasteboard.declareTypes([.string], owner: nil)
-                                        pasteboard.setString(jokeToReport, forType: .string)
+                                    let pasteboard = NSPasteboard.general
+                                    pasteboard.declareTypes([.string], owner: nil)
+                                    pasteboard.setString(jokeToReport, forType: .string)
 #else
-                                        let pasteboard = UIPasteboard.general
-                                        pasteboard.string = jokeToReport
+                                    let pasteboard = UIPasteboard.general
+                                    pasteboard.string = jokeToReport
 #endif
-                                        guard let url = URL(string: jokeManager.issueURL) else { return }
-                                        openURL(url)
-                                    }
-                                    .buttonStyle(.bordered)
-                                    Text("You can report an unsafe joke. The Joke id and content will be on your clipboard")
-                                        .font(.caption)
-                                        .lineLimit(nil)
-                                        .foregroundStyle(.red)
+                                    guard let url = URL(string: jokeManager.issueURL) else { return }
+                                    openURL(url)
                                 }
+                                .buttonStyle(.bordered)
+                                Text("You can report an unsafe joke. The Joke id and content will be on your clipboard")
+                                    .font(.caption)
+                                    .lineLimit(nil)
+                                    .foregroundStyle(.red)
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding()
                 }
