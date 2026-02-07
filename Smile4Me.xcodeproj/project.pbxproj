@@ -7,15 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AF1BD292F3747E800FF5BAC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF1BD282F3747E800FF5BAC /* WidgetKit.framework */; };
+		3AF1BD2B2F3747E800FF5BAC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF1BD2A2F3747E800FF5BAC /* SwiftUI.framework */; };
+		3AF1BD362F3747E900FF5BAC /* Smile4MeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DA55A4782F32343200CA2BBB /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = DA55A4772F32343200CA2BBB /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3AF1BD342F3747E900FF5BAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB13FD32F0084D100467C76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF1BD252F3747E800FF5BAC;
+			remoteInfo = Smile4MeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AF1BD372F3747E900FF5BAC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3AF1BD362F3747E900FF5BAC /* Smile4MeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Smile4MeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF1BD282F3747E800FF5BAC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3AF1BD2A2F3747E800FF5BAC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DA55A47D2F332F9200CA2BBB /* Smile4Me_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smile4Me_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB13FDB2F0084D100467C76 /* Smile4Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smile4Me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3AF1BD3B2F3747E900FF5BAC /* Exceptions for "Smile4MeWidget" folder in "Smile4MeWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
+		};
 		DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -33,6 +70,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		3AF1BD2C2F3747E800FF5BAC /* Smile4MeWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3AF1BD3B2F3747E900FF5BAC /* Exceptions for "Smile4MeWidget" folder in "Smile4MeWidgetExtension" target */,
+			);
+			path = Smile4MeWidget;
+			sourceTree = "<group>";
+		};
 		DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Smile4Me_iOS;
@@ -49,6 +94,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3AF1BD232F3747E800FF5BAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF1BD2B2F3747E800FF5BAC /* SwiftUI.framework in Frameworks */,
+				3AF1BD292F3747E800FF5BAC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA55A47A2F332F9200CA2BBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,11 +121,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AF1BD272F3747E800FF5BAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1BD282F3747E800FF5BAC /* WidgetKit.framework */,
+				3AF1BD2A2F3747E800FF5BAC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAB13FD22F0084D100467C76 = {
 			isa = PBXGroup;
 			children = (
 				DAB13FDD2F0084D100467C76 /* Smile4Me */,
 				DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */,
+				3AF1BD2C2F3747E800FF5BAC /* Smile4MeWidget */,
+				3AF1BD272F3747E800FF5BAC /* Frameworks */,
 				DAB13FDC2F0084D100467C76 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +146,7 @@
 			children = (
 				DAB13FDB2F0084D100467C76 /* Smile4Me.app */,
 				DA55A47D2F332F9200CA2BBB /* Smile4Me_iOS.app */,
+				3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +154,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AF1BD3A2F3747E900FF5BAC /* Build configuration list for PBXNativeTarget "Smile4MeWidgetExtension" */;
+			buildPhases = (
+				3AF1BD222F3747E800FF5BAC /* Sources */,
+				3AF1BD232F3747E800FF5BAC /* Frameworks */,
+				3AF1BD242F3747E800FF5BAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3AF1BD2C2F3747E800FF5BAC /* Smile4MeWidget */,
+			);
+			name = Smile4MeWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = Smile4MeWidgetExtension;
+			productReference = 3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DA55A47C2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA55A4852F332F9300CA2BBB /* Build configuration list for PBXNativeTarget "Smile4Me_iOS" */;
@@ -95,10 +183,12 @@
 				DA55A4792F332F9200CA2BBB /* Sources */,
 				DA55A47A2F332F9200CA2BBB /* Frameworks */,
 				DA55A47B2F332F9200CA2BBB /* Resources */,
+				3AF1BD372F3747E900FF5BAC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3AF1BD352F3747E900FF5BAC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */,
@@ -140,9 +230,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
+				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
+					3AF1BD252F3747E800FF5BAC = {
+						CreatedOnToolsVersion = 26.3;
+					};
 					DA55A47C2F332F9200CA2BBB = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -170,11 +263,19 @@
 			targets = (
 				DAB13FDA2F0084D100467C76 /* Smile4Me */,
 				DA55A47C2F332F9200CA2BBB /* Smile4Me_iOS */,
+				3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3AF1BD242F3747E800FF5BAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA55A47B2F332F9200CA2BBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +293,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3AF1BD222F3747E800FF5BAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA55A4792F332F9200CA2BBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,7 +316,80 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3AF1BD352F3747E900FF5BAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
+			targetProxy = 3AF1BD342F3747E900FF5BAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		3AF1BD382F3747E900FF5BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4NUC6UB46;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Smile4MeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eberhardt.adrian.Smile4Me.Smile4MeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3AF1BD392F3747E900FF5BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4NUC6UB46;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Smile4MeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eberhardt.adrian.Smile4Me.Smile4MeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		DA55A4862F332F9300CA2BBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -228,7 +409,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -270,7 +451,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,6 +692,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3AF1BD3A2F3747E900FF5BAC /* Build configuration list for PBXNativeTarget "Smile4MeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AF1BD382F3747E900FF5BAC /* Debug */,
+				3AF1BD392F3747E900FF5BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DA55A4852F332F9300CA2BBB /* Build configuration list for PBXNativeTarget "Smile4Me_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
