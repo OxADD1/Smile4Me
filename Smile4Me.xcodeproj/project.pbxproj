@@ -60,6 +60,15 @@
 				Models/Joke.swift,
 				Models/JokeTyp.swift,
 				Models/Language.swift,
+				"Services and Manager/APIService.swift",
+				"Services and Manager/JokeManager.swift",
+			);
+			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
+		};
+		3AF1BD482F37834000FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Info Tab/Info.swift",
 			);
 			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
 		};
@@ -90,6 +99,9 @@
 		};
 		DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3AF1BD482F37834000FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWidgetExtension" target */,
+			);
 			path = Smile4Me_iOS;
 			sourceTree = "<group>";
 		};

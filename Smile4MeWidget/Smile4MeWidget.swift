@@ -15,23 +15,36 @@ struct Provider: TimelineProvider {
     }
     // das ist das Preview beim hinzufügen oder editieren des widgets
     func getSnapshot(in context: Context, completion: @escaping (JokeEntry) -> ()) {
-        let entry = JokeEntry(date: Date(), joke: Joke.twopart)
-        completion(entry)
+        let jokeManager = JokeManager()
+        Task {
+            let joke = try await jokeManager.getJoke()
+            let entry = JokeEntry(date: Date(), joke: joke)
+            completion(entry)
+        }
+
     }
     // dort werden die jokes gefetched die angezeigt werden
+    // es generiert eine timeline von entries und wann es upgaedet werden soll
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        let jokeManager = JokeManager()
         var entries: [JokeEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = JokeEntry(date: entryDate, joke: Joke.single)
-            entries.append(entry)
+            // das ist asyncron deswegen ein Task
+            Task {
+                let joke = try await jokeManager.getJoke()
+                let entry = JokeEntry(date: entryDate, joke: joke)
+                entries.append(entry)
+                let timeline = Timeline(entries: entries, policy: .atEnd)
+                completion(timeline)
+            }
+
         }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+
     }
 
 }
