@@ -42,11 +42,23 @@ struct JokeEntry: TimelineEntry {
 }
 // hier wird der Joke angezeigt
 struct Smile4MeWidgetEntryView : View {
+    // um herauszufinden welches Widget benutzt wird für die schriftgröße
+    @Environment(\.widgetFamily) var familiy
+    
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            // content
+        if let joke = entry.joke {
+            JokeView(joke: joke)
+        } else {
+            ContentUnavailableView {
+                Text("🥲")
+                    .font(.system(size: familiy == .systemLarge ? 120 : 80))
+            } description: {
+                Text("No joke available")
+                    .font(familiy == .systemLarge ? .largeTitle : .title2)
+            }
+
         }
     }
 }
@@ -59,7 +71,6 @@ struct Smile4MeWidget: Widget {
             
                 Smile4MeWidgetEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
-
         }
         .configurationDisplayName("Smile4Me") // display name
         .description("Bring a smile to your face.")
