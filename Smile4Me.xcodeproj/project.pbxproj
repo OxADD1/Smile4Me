@@ -53,6 +53,16 @@
 			);
 			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
 		};
+		3AF1BD3D2F37558800FF5BAC /* Exceptions for "Smile4Me" folder in "Smile4MeWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Category.swift,
+				Models/Joke.swift,
+				Models/JokeTyp.swift,
+				Models/Language.swift,
+			);
+			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
+		};
 		DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -87,6 +97,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */,
+				3AF1BD3D2F37558800FF5BAC /* Exceptions for "Smile4Me" folder in "Smile4MeWidgetExtension" target */,
 			);
 			path = Smile4Me;
 			sourceTree = "<group>";

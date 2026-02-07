@@ -9,23 +9,24 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+    // dieser placeholder ist wenn das widget ist nicht verfügbar zb wenn es fetched
+    func placeholder(in context: Context) -> JokeEntry {
+        JokeEntry(date: Date(), joke: Joke.single)
     }
-
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+    // das ist das Preview beim hinzufügen oder editieren des widgets
+    func getSnapshot(in context: Context, completion: @escaping (JokeEntry) -> ()) {
+        let entry = JokeEntry(date: Date(), joke: Joke.twopart)
         completion(entry)
     }
-
+    // dort werden die jokes gefetched die angezeigt werden
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        var entries: [JokeEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = JokeEntry(date: entryDate, joke: Joke.single)
             entries.append(entry)
         }
 
@@ -33,26 +34,19 @@ struct Provider: TimelineProvider {
         completion(timeline)
     }
 
-//    func relevances() async -> WidgetRelevances<Void> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let emoji: String
+struct JokeEntry: TimelineEntry {
+    let date: Date // das muss immer sein
+    let joke: Joke?
 }
-
+// hier wird der Joke angezeigt
 struct Smile4MeWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
         VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
+            // content
         }
     }
 }
@@ -76,13 +70,13 @@ struct Smile4MeWidget: Widget {
 #Preview("Medium Widget", as: .systemMedium) {
     Smile4MeWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    JokeEntry(date: .now, joke: Joke.single)
+    JokeEntry(date: .now, joke: Joke.twopart)
 }
 
 #Preview("Large Widget", as: .systemLarge) {
     Smile4MeWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    JokeEntry(date: .now, joke: Joke.single)
+    JokeEntry(date: .now, joke: Joke.twopart)
 }
