@@ -12,5 +12,6 @@ import SwiftUI
 struct Smile4MeWidgetBundle: WidgetBundle {
     var body: some Widget {
         Smile4MeWidget()
+        ConfigurableWidget()
     }
 }
