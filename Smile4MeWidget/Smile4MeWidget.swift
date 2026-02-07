@@ -67,12 +67,20 @@ struct Smile4MeWidget: Widget {
                     .containerBackground(.fill.tertiary, for: .widget)
 
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Smile4Me") // display name
+        .description("Bring a smile to your face.")
+        .supportedFamilies([.systemMedium, .systemLarge]) //verschiedene größen
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview("Medium Widget", as: .systemMedium) {
+    Smile4MeWidget()
+} timeline: {
+    SimpleEntry(date: .now, emoji: "😀")
+    SimpleEntry(date: .now, emoji: "🤩")
+}
+
+#Preview("Large Widget", as: .systemLarge) {
     Smile4MeWidget()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
