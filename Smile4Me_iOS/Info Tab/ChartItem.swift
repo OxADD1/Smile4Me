@@ -1,6 +1,3 @@
-
-
-
 import Foundation
 
 struct ChartItem: Identifiable {
@@ -12,4 +9,3 @@ struct ChartItem: Identifiable {
     let qty: Int
     let jokeType: JokeType
 }
-

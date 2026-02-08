@@ -76,6 +76,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Info Tab/Info.swift",
+				Router.swift,
 			);
 			target = DAB13FDA2F0084D100467C76 /* Smile4Me */;
 		};

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct JokeContentView: View {
+#if os(iOS)
+    @Environment(Router.self) var router
+#endif
     let jokeManager = JokeManager()
     @State private var joke: Joke?
     @State private var category: Category = .Any
@@ -100,6 +103,26 @@ struct JokeContentView: View {
                 await getJoke()
             }
         }
+#if os(iOS)
+        .onChange(of: router.components) {
+            _ , componentsString in
+            if let componentsString,
+               let id = componentsString.components(separatedBy: "-").first,
+               let language = componentsString.components(separatedBy: "-").last {
+                let category = componentsString.components(separatedBy: "-")[1]
+                Task {
+                    if let joke = try? await jokeManager.getLinkedJoke(
+                        category: category,
+                        language: language,
+                        id: id
+                    ) {
+                        print(joke.fullJoke)
+                        router.components = nil
+                    }
+                }
+            }
+        }
+#endif
     }
     
     func getJoke() async {
@@ -124,6 +147,9 @@ struct JokeContentView: View {
 
 #Preview {
     JokeContentView()
+#if os(iOS)
+        .environment(Router())
+#endif
 }
 
 struct FirstOnAppearModifier: ViewModifier {

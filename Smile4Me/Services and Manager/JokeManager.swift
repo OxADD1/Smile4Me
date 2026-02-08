@@ -28,4 +28,16 @@ class JokeManager {
             throw error
         }
     }
+    
+    func getLinkedJoke(category: String, language: String, id: String) async throws -> Joke {
+        let url = "https://v2.jokeapi.dev/joke/\(category)?lang=\(language)&idRange=\(id)"
+        let apiService = APIService(urlString: url)
+        
+        do {
+            let joke: Joke = try await apiService.getJSON()
+            return joke
+        } catch {
+            throw error
+        }
+    }
 }

@@ -1,6 +1,3 @@
-
-
-
 struct Info: Codable {
     struct Jokes: Codable {
         let totalCount: Int
@@ -19,4 +16,3 @@ struct Info: Codable {
         let count: Int
     }
 }
-
