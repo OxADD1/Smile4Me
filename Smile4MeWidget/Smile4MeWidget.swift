@@ -64,7 +64,13 @@ struct Smile4MeWidgetEntryView : View {
 
     var body: some View {
         if let joke = entry.joke {
-            JokeView(joke: joke)
+            Link(
+                destination: URL(
+                    string: "s4m://joke/\(joke.id)-\(joke.category.rawValue)-\(joke.lang.rawValue)"
+                )!
+            ) {
+                JokeView(joke: joke)
+            }
         } else {
             ContentUnavailableView {
                 Text("🥲")

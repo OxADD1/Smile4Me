@@ -5,6 +5,15 @@
 //  Created by Adrian Eberhardt on 04.02.26.
 //
 
+
+
+
+
+
+
+
+
+
 import SwiftUI
 
 @main
@@ -12,6 +21,11 @@ struct Smile4Me_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             StartTabView()
+                .onOpenURL { url in
+                    guard url.scheme == "s4m",
+                          url.host == "joke" else { return }
+                    //print(url)
+                }
         }
     }
 }

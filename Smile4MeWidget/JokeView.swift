@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+
+
+
+
+
 struct JokeView: View {
     let joke: Joke
     var body: some View {
@@ -19,6 +24,7 @@ struct JokeView: View {
                 .minimumScaleFactor(0.2)
             Spacer()
         }
+        // gesamter view
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

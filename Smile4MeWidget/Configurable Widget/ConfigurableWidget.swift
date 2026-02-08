@@ -1,8 +1,24 @@
 import SwiftUI
 import WidgetKit
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
+    
     let jokeManager = JokeManager()
+    
     func placeholder(in context: Context) -> ConfigurableEntry {
         ConfigurableEntry(
             date: Date(),
@@ -72,8 +88,14 @@ struct ConfigurableWidgetEntryView: View {
     @Environment(\.widgetFamily) var familiy
     var body: some View {
         if let joke = entry.joke {
-            JokeView(joke: joke)
-        } else {
+            Link(
+                destination: URL(
+                    string: "s4m://joke/\(joke.id)-\(joke.category.rawValue)-\(joke.lang.rawValue)"
+                )!
+            ) {
+                JokeView(joke: joke)
+            }
+                    } else {
             let category =
                 entry.configuration.categoty?.id ?? Category.Any.rawValue
             let language = entry.configuration.language?.id ?? Language.en.full
