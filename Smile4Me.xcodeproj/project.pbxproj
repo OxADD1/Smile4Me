@@ -72,6 +72,13 @@
 			);
 			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
 		};
+		3AF1BD962F38BD3B00FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4Me" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Info Tab/Info.swift",
+			);
+			target = DAB13FDA2F0084D100467C76 /* Smile4Me */;
+		};
 		DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -100,6 +107,7 @@
 		DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				3AF1BD962F38BD3B00FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4Me" target */,
 				3AF1BD482F37834000FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWidgetExtension" target */,
 			);
 			path = Smile4Me_iOS;
@@ -360,7 +368,7 @@
 				INFOPLIST_FILE = Smile4MeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,7 +400,7 @@
 				INFOPLIST_FILE = Smile4MeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
