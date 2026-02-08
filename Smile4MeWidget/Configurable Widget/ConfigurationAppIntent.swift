@@ -24,8 +24,8 @@ struct LanguageEntity: AppEntity {
     static var defaultQuery: LanguageQuery = LanguageQuery()
 
     
-    // id ist was für ein Typ wird deine Variable sein (könnte auch hier String hin machen)
-    var id: Language.RawValue
+    // id ist was für ein Typ wird deine Variable sein
+    var id: String
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = TypeDisplayRepresentation(
         name: "Language")
@@ -41,7 +41,7 @@ struct LanguageQuery: EntityQuery {
     
     //1. generieren eines Arrays der languages entities
     func suggestedEntities() async throws -> [LanguageEntity] {
-        Language.allCases.map {LanguageEntity(id: $0.rawValue)}
+        Language.allCases.map {LanguageEntity(id: $0.full)}
     }
     
     func entities(for identifiers: [String]) async throws -> [LanguageEntity] {

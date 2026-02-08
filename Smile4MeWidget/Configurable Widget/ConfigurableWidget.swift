@@ -40,7 +40,7 @@ struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
             where: {$0.rawValue == configuration.categoty?.id
             }) ?? .Any
         let language = Language.allCases.first(
-            where: {$0.rawValue == configuration.language?.id
+            where: {$0.full == configuration.language?.id
             }) ?? .en
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
@@ -71,13 +71,14 @@ struct ConfigurableWidgetEntryView : View {
             JokeView(joke: joke)
         } else {
             let category = entry.configuration.categoty?.id ?? Category.Any.rawValue
-            let language = entry.configuration.language?.id ?? Language.en.rawValue
+            let language = entry.configuration.language?.id ?? Language.en.full
             ContentUnavailableView {
                 Text("🥲")
                     .font(.system(size: familiy == .systemLarge ? 120 : 80))
             } description: {
                 Text("No joke available for \(category) in \(language)")
                     .font(familiy == .systemLarge ? .largeTitle : .title2)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
         }
