@@ -1,23 +1,55 @@
 import WidgetKit
 import SwiftUI
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
+    let jokeManager = JokeManager()
     func placeholder(in context: Context) -> ConfigurableEntry {
-        ConfigurableEntry(date: Date(), configuration: ConfigurationAppIntent())
+        ConfigurableEntry(
+            date: Date(),
+            configuration: ConfigurationAppIntent(),
+            joke: Joke.single
+        )
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> ConfigurableEntry {
-        ConfigurableEntry(date: Date(), configuration: configuration)
+        let joke = try? await jokeManager.getJoke()
+        return ConfigurableEntry(
+            date: Date(),
+          configuration: configuration, joke: joke
+        )
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<ConfigurableEntry> {
         var entries: [ConfigurableEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
+        let category = Category.allCases.first(
+            where: {$0.rawValue == configuration.categoty?.id
+            }) ?? .Any
+        let language = Language.allCases.first(
+            where: {$0.rawValue == configuration.language?.id
+            }) ?? .en
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ConfigurableEntry(date: entryDate, configuration: configuration)
+            let joke = try? await jokeManager.getJoke(category: category, language: language)
+            let entry = ConfigurableEntry(
+                date: entryDate,
+                configuration: configuration,
+                joke: joke
+            )
             entries.append(entry)
         }
 
@@ -28,18 +60,26 @@ struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
 struct ConfigurableEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
+    let joke: Joke?
 }
 
 struct ConfigurableWidgetEntryView : View {
     var entry: ConfigurableWidgetProvider.Entry
-
+    @Environment(\.widgetFamily) var familiy
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
+        if let joke = entry.joke {
+            JokeView(joke: joke)
+        } else {
+            let category = entry.configuration.categoty?.id ?? Category.Any.rawValue
+            let language = entry.configuration.language?.id ?? Language.en.rawValue
+            ContentUnavailableView {
+                Text("🥲")
+                    .font(.system(size: familiy == .systemLarge ? 120 : 80))
+            } description: {
+                Text("No joke available for \(category) in \(language)")
+                    .font(familiy == .systemLarge ? .largeTitle : .title2)
+            }
 
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
         }
     }
 }
@@ -59,29 +99,32 @@ struct ConfigurableWidget: Widget {
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
 
 #Preview("Medium Widget Template", as: .systemMedium) {
     ConfigurableWidget()
 } timeline: {
-    ConfigurableEntry(date: .now, configuration: .smiley)
-    ConfigurableEntry(date: .now, configuration: .starEyes)
+    ConfigurableEntry(
+        date: .now,
+        configuration: ConfigurationAppIntent(),
+        joke: Joke.single
+    )
+    ConfigurableEntry(
+        date: .now,
+        configuration: ConfigurationAppIntent(),
+        joke: Joke.twopart
+    )
 }
 #Preview("Large Widget Template", as: .systemLarge) {
     ConfigurableWidget()
 } timeline: {
-    ConfigurableEntry(date: .now, configuration: .smiley)
-    ConfigurableEntry(date: .now, configuration: .starEyes)
+    ConfigurableEntry(
+        date: .now,
+        configuration: ConfigurationAppIntent(),
+        joke: Joke.single
+    )
+    ConfigurableEntry(
+        date: .now,
+        configuration: ConfigurationAppIntent(),
+        joke: Joke.twopart
+    )
 }

@@ -53,6 +53,8 @@ struct JokeEntry: TimelineEntry {
     let date: Date // das muss immer sein
     let joke: Joke?
 }
+
+
 // hier wird der Joke angezeigt
 struct Smile4MeWidgetEntryView : View {
     // um herauszufinden welches Widget benutzt wird für die schriftgröße
