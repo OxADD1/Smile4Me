@@ -18,6 +18,9 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     
     @Parameter(title: "Category", default: nil)
     var categoty: CategoryEntity?
+    
+    @Parameter(title: "Mesh Background", default: false)
+    var enabled: Bool
 }
 
 struct LanguageEntity: AppEntity {

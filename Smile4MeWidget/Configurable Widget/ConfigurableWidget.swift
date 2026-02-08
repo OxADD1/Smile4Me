@@ -1,19 +1,5 @@
-import WidgetKit
 import SwiftUI
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import WidgetKit
 
 struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
     let jokeManager = JokeManager()
@@ -25,26 +11,44 @@ struct ConfigurableWidgetProvider: AppIntentTimelineProvider {
         )
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> ConfigurableEntry {
+    func snapshot(
+        for configuration: ConfigurationAppIntent,
+        in context: Context
+    ) async -> ConfigurableEntry {
         let joke = try? await jokeManager.getJoke()
         return ConfigurableEntry(
             date: Date(),
-          configuration: configuration, joke: joke
+            configuration: configuration,
+            joke: joke
         )
     }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<ConfigurableEntry> {
+
+    func timeline(
+        for configuration: ConfigurationAppIntent,
+        in context: Context
+    ) async -> Timeline<ConfigurableEntry> {
         var entries: [ConfigurableEntry] = []
         let currentDate = Date()
-        let category = Category.allCases.first(
-            where: {$0.rawValue == configuration.categoty?.id
-            }) ?? .Any
-        let language = Language.allCases.first(
-            where: {$0.full == configuration.language?.id
-            }) ?? .en
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let joke = try? await jokeManager.getJoke(category: category, language: language)
+        let category =
+            Category.allCases.first(
+                where: {
+                    $0.rawValue == configuration.categoty?.id
+                }) ?? .Any
+        let language =
+            Language.allCases.first(
+                where: {
+                    $0.full == configuration.language?.id
+                }) ?? .en
+        for hourOffset in 0..<5 {
+            let entryDate = Calendar.current.date(
+                byAdding: .hour,
+                value: hourOffset,
+                to: currentDate
+            )!
+            let joke = try? await jokeManager.getJoke(
+                category: category,
+                language: language
+            )
             let entry = ConfigurableEntry(
                 date: entryDate,
                 configuration: configuration,
@@ -63,14 +67,15 @@ struct ConfigurableEntry: TimelineEntry {
     let joke: Joke?
 }
 
-struct ConfigurableWidgetEntryView : View {
+struct ConfigurableWidgetEntryView: View {
     var entry: ConfigurableWidgetProvider.Entry
     @Environment(\.widgetFamily) var familiy
     var body: some View {
         if let joke = entry.joke {
             JokeView(joke: joke)
         } else {
-            let category = entry.configuration.categoty?.id ?? Category.Any.rawValue
+            let category =
+                entry.configuration.categoty?.id ?? Category.Any.rawValue
             let language = entry.configuration.language?.id ?? Language.en.full
             ContentUnavailableView {
                 Text("🥲")
@@ -89,9 +94,13 @@ struct ConfigurableWidget: Widget {
     let kind: String = "ConfigurableWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: ConfigurableWidgetProvider()) { entry in
+        AppIntentConfiguration(
+            kind: kind,
+            intent: ConfigurationAppIntent.self,
+            provider: ConfigurableWidgetProvider()
+        ) { entry in
             ConfigurableWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .meshBackground(entry.configuration.enabled)
         }
         .configurationDisplayName("Configurable Widget")
         .description("Das ist ein Template für eine configurierebares Widget")
@@ -99,7 +108,6 @@ struct ConfigurableWidget: Widget {
         .supportedFamilies([.systemMedium, .systemLarge])
     }
 }
-
 
 #Preview("Medium Widget Template", as: .systemMedium) {
     ConfigurableWidget()
@@ -128,4 +136,31 @@ struct ConfigurableWidget: Widget {
         configuration: ConfigurationAppIntent(),
         joke: Joke.twopart
     )
+}
+
+struct MeshBacKground: ViewModifier {
+    let enabled: Bool
+    func body(content: Content) -> some View {
+
+        if enabled {
+            let meshBg = MeshGradient(
+                width: 2,
+                height: 2,
+                points: [[0,0],[1,0],[0,1],[1,1]],
+                colors: [.purple, .green, .teal, .orange]
+            )
+            content
+                .containerBackground(meshBg, for: .widget)
+        } else {
+            content
+                .containerBackground(.fill.tertiary, for: .widget)
+        }
+
+    }
+}
+
+extension View {
+    func meshBackground(_ enabled: Bool) -> some View {
+        modifier(MeshBacKground(enabled: enabled))
+    }
 }
