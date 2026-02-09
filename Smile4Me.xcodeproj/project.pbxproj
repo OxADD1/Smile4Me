@@ -10,6 +10,7 @@
 		3AF1BD292F3747E800FF5BAC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF1BD282F3747E800FF5BAC /* WidgetKit.framework */; };
 		3AF1BD2B2F3747E800FF5BAC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF1BD2A2F3747E800FF5BAC /* SwiftUI.framework */; };
 		3AF1BD362F3747E900FF5BAC /* Smile4MeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3AF1BDA82F399EB600FF5BAC /* Smile4MeWatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3AF1BD9E2F399EB400FF5BAC /* Smile4MeWatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DA55A4782F32343200CA2BBB /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = DA55A4772F32343200CA2BBB /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +21,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3AF1BD252F3747E800FF5BAC;
 			remoteInfo = Smile4MeWidgetExtension;
+		};
+		3AF1BDA62F399EB600FF5BAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAB13FD32F0084D100467C76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF1BD9D2F399EB400FF5BAC;
+			remoteInfo = "Smile4MeWatchOS Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,12 +43,24 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AF1BDAC2F399EB600FF5BAC /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3AF1BDA82F399EB600FF5BAC /* Smile4MeWatchOS Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Smile4MeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AF1BD282F3747E800FF5BAC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3AF1BD2A2F3747E800FF5BAC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3AF1BD9E2F399EB400FF5BAC /* Smile4MeWatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smile4MeWatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA55A47D2F332F9200CA2BBB /* Smile4Me_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smile4Me_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB13FDB2F0084D100467C76 /* Smile4Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smile4Me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,6 +125,11 @@
 			path = Smile4MeWidget;
 			sourceTree = "<group>";
 		};
+		3AF1BD9F2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Smile4MeWatchOS Watch App";
+			sourceTree = "<group>";
+		};
 		DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -132,6 +157,13 @@
 			files = (
 				3AF1BD2B2F3747E800FF5BAC /* SwiftUI.framework in Frameworks */,
 				3AF1BD292F3747E800FF5BAC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF1BD9B2F399EB400FF5BAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +200,7 @@
 				DAB13FDD2F0084D100467C76 /* Smile4Me */,
 				DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */,
 				3AF1BD2C2F3747E800FF5BAC /* Smile4MeWidget */,
+				3AF1BD9F2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */,
 				3AF1BD272F3747E800FF5BAC /* Frameworks */,
 				DAB13FDC2F0084D100467C76 /* Products */,
 			);
@@ -179,6 +212,7 @@
 				DAB13FDB2F0084D100467C76 /* Smile4Me.app */,
 				DA55A47D2F332F9200CA2BBB /* Smile4Me_iOS.app */,
 				3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */,
+				3AF1BD9E2F399EB400FF5BAC /* Smile4MeWatchOS Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +242,28 @@
 			productReference = 3AF1BD262F3747E800FF5BAC /* Smile4MeWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		3AF1BD9D2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AF1BDA92F399EB600FF5BAC /* Build configuration list for PBXNativeTarget "Smile4MeWatchOS Watch App" */;
+			buildPhases = (
+				3AF1BD9A2F399EB400FF5BAC /* Sources */,
+				3AF1BD9B2F399EB400FF5BAC /* Frameworks */,
+				3AF1BD9C2F399EB400FF5BAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3AF1BD9F2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */,
+			);
+			name = "Smile4MeWatchOS Watch App";
+			packageProductDependencies = (
+			);
+			productName = "Smile4MeWatchOS Watch App";
+			productReference = 3AF1BD9E2F399EB400FF5BAC /* Smile4MeWatchOS Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DA55A47C2F332F9200CA2BBB /* Smile4Me_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA55A4852F332F9300CA2BBB /* Build configuration list for PBXNativeTarget "Smile4Me_iOS" */;
@@ -216,11 +272,13 @@
 				DA55A47A2F332F9200CA2BBB /* Frameworks */,
 				DA55A47B2F332F9200CA2BBB /* Resources */,
 				3AF1BD372F3747E900FF5BAC /* Embed Foundation Extensions */,
+				3AF1BDAC2F399EB600FF5BAC /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				3AF1BD352F3747E900FF5BAC /* PBXTargetDependency */,
+				3AF1BDA72F399EB600FF5BAC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DA55A47E2F332F9200CA2BBB /* Smile4Me_iOS */,
@@ -268,6 +326,9 @@
 					3AF1BD252F3747E800FF5BAC = {
 						CreatedOnToolsVersion = 26.3;
 					};
+					3AF1BD9D2F399EB400FF5BAC = {
+						CreatedOnToolsVersion = 26.3;
+					};
 					DA55A47C2F332F9200CA2BBB = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -296,12 +357,20 @@
 				DAB13FDA2F0084D100467C76 /* Smile4Me */,
 				DA55A47C2F332F9200CA2BBB /* Smile4Me_iOS */,
 				3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */,
+				3AF1BD9D2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AF1BD242F3747E800FF5BAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF1BD9C2F399EB400FF5BAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,6 +401,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AF1BD9A2F399EB400FF5BAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA55A4792F332F9200CA2BBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +429,11 @@
 			isa = PBXTargetDependency;
 			target = 3AF1BD252F3747E800FF5BAC /* Smile4MeWidgetExtension */;
 			targetProxy = 3AF1BD342F3747E900FF5BAC /* PBXContainerItemProxy */;
+		};
+		3AF1BDA72F399EB600FF5BAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AF1BD9D2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */;
+			targetProxy = 3AF1BDA62F399EB600FF5BAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -431,6 +512,73 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AF1BDAA2F399EB600FF5BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4NUC6UB46;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWatchOS;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eberhardt.adrian.Smile4Me;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eberhardt.adrian.Smile4Me.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		3AF1BDAB2F399EB600FF5BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P4NUC6UB46;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWatchOS;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eberhardt.adrian.Smile4Me;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eberhardt.adrian.Smile4Me.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Release;
 		};
@@ -741,6 +889,15 @@
 			buildConfigurations = (
 				3AF1BD382F3747E900FF5BAC /* Debug */,
 				3AF1BD392F3747E900FF5BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AF1BDA92F399EB600FF5BAC /* Build configuration list for PBXNativeTarget "Smile4MeWatchOS Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AF1BDAA2F399EB600FF5BAC /* Debug */,
+				3AF1BDAB2F399EB600FF5BAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
