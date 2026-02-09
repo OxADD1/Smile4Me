@@ -100,6 +100,25 @@
 			);
 			target = DAB13FDA2F0084D100467C76 /* Smile4Me */;
 		};
+		3AF1BDAF2F39A56800FF5BAC /* Exceptions for "Smile4Me" folder in "Smile4MeWatchOS Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Category.swift,
+				Models/Joke.swift,
+				Models/JokeTyp.swift,
+				Models/Language.swift,
+				"Services and Manager/APIService.swift",
+				"Services and Manager/JokeManager.swift",
+			);
+			target = 3AF1BD9D2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */;
+		};
+		3AF1BDB52F39A5B700FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWatchOS Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Info Tab/Info.swift",
+			);
+			target = 3AF1BD9D2F399EB400FF5BAC /* Smile4MeWatchOS Watch App */;
+		};
 		DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -135,6 +154,7 @@
 			exceptions = (
 				3AF1BD962F38BD3B00FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4Me" target */,
 				3AF1BD482F37834000FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWidgetExtension" target */,
+				3AF1BDB52F39A5B700FF5BAC /* Exceptions for "Smile4Me_iOS" folder in "Smile4MeWatchOS Watch App" target */,
 			);
 			path = Smile4Me_iOS;
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 			exceptions = (
 				DA55A88D2F3376EC00CA2BBB /* Exceptions for "Smile4Me" folder in "Smile4Me_iOS" target */,
 				3AF1BD3D2F37558800FF5BAC /* Exceptions for "Smile4Me" folder in "Smile4MeWidgetExtension" target */,
+				3AF1BDAF2F39A56800FF5BAC /* Exceptions for "Smile4Me" folder in "Smile4MeWatchOS Watch App" target */,
 			);
 			path = Smile4Me;
 			sourceTree = "<group>";
@@ -525,7 +546,7 @@
 				DEVELOPMENT_TEAM = P4NUC6UB46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWatchOS;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4Me;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eberhardt.adrian.Smile4Me;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -544,7 +565,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+				WATCHOS_DEPLOYMENT_TARGET = 11;
 			};
 			name = Debug;
 		};
@@ -558,7 +579,7 @@
 				DEVELOPMENT_TEAM = P4NUC6UB46;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Smile4MeWatchOS;
+				INFOPLIST_KEY_CFBundleDisplayName = Smile4Me;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eberhardt.adrian.Smile4Me;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -578,7 +599,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+				WATCHOS_DEPLOYMENT_TARGET = 11;
 			};
 			name = Release;
 		};
